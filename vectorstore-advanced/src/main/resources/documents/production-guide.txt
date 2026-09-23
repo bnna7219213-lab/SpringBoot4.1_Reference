@@ -1,0 +1,13 @@
+Production Guide: Deploying Vector Databases at Scale
+
+When deploying vector databases in production, several engineering considerations must be addressed to ensure reliability and performance.
+
+Memory management is critical. Vector databases store data in memory for fast access, so sufficient RAM must be provisioned. For billion-scale datasets, sharding across multiple nodes is necessary. PGVector supports horizontal scaling through Citus, while Milvus and Qdrant have native distributed architectures.
+
+Monitoring key metrics including query latency (P50, P95, P99), recall rate, indexing throughput, and memory utilization. Use Spring Boot Actuator and Micrometer to expose these metrics to Prometheus and Grafana.
+
+Backup and recovery strategies should include both vector data and metadata indexes. For PGVector, standard PostgreSQL backup tools work. For dedicated vector databases, use their native snapshot mechanisms.
+
+Security considerations include encryption at rest, network isolation, and access control. Implement row-level security in PGVector using PostgreSQL policies, or use the built-in authentication in dedicated vector databases.
+
+Auto-scaling based on query load and data volume ensures cost efficiency. Kubernetes operators for vector databases simplify this process.

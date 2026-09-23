@@ -1,0 +1,57 @@
+=== ACME CORPORATION POLICIES ===
+
+Return and Refund Policy
+------------------------
+ACME Corporation offers a 30-day return policy for all software subscriptions
+and a 14-day return policy for physical hardware products.
+
+Software Subscription Returns:
+- Full refund if cancelled within 30 days of purchase
+- No questions asked refund policy
+- Prorated refunds available for annual subscriptions cancelled after 30 days
+- Refund processing time: 5-10 business days
+- Refunds are issued to original payment method
+
+Physical Hardware Returns:
+- 14-day return window from delivery date
+- Products must be in original packaging with all accessories
+- Return shipping is free for defective items
+- Customer pays return shipping for non-defective returns
+- Restocking fee: 1% for opened items, 0% for sealed items
+
+Electronics Return Policy:
+- All electronic devices (servers, networking equipment, storage devices)
+  carry a 14-day return period
+- Electronics must be factory-reset before return
+- Original receipt or order confirmation required
+- Defective electronics can be exchanged within 90 days
+- Extended warranty available for electronics: $199/year covers
+  accidental damage, power surges, and component failure
+
+Privacy Policy Summary:
+- ACME collects minimal customer data required for service delivery
+- Customer data is encrypted at rest (AES-256) and in transit (TLS 1.3)
+- Data is stored in SOC 2 Type II certified data centers
+- Customers can request data deletion at any time
+- ACME never sells customer data to third parties
+- Data retention: Active accounts retain data, deleted accounts purge within
+  30 days of deletion request
+- GDPR and CCPA compliant
+
+Service Level Agreement (SLA):
+- Platinum Tier (Enterprise): 99.99% uptime, 1-hour response time
+- Gold Tier (Professional): 99.95% uptime, 4-hour response time
+- Silver Tier (Starter): 99.9% uptime, 24-hour response time
+- SLA credits: 10% monthly credit for each 0.1% below guaranteed uptime
+- Maximum monthly credit: 100% of monthly subscription fee
+- Exclusions: Scheduled maintenance (max 4 hours/month), force majeure
+
+Billing and Payment:
+- All major credit cards accepted (Visa, MasterCard, Amex)
+-ACH bank transfer available for annual plans
+- Invoices generated on the 1st of each month
+- Annual plans receive 15% discount vs monthly billing
+- Enterprise customers can request Net 30 payment terms
+- Late payment: 1.5% monthly interest after 15-day grace period
+- Service suspension after 30 days of non-payment
+- Data retained for 90 days after service suspension

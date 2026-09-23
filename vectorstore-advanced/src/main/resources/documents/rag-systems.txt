@@ -1,0 +1,9 @@
+Retrieval-Augmented Generation (RAG) Systems
+
+Retrieval-Augmented Generation (RAG) is a technique that enhances large language models by retrieving relevant external knowledge before generating a response. This addresses the limitation of LLMs having a fixed knowledge cutoff and potential hallucination issues.
+
+The RAG pipeline typically consists of three main stages: indexing, retrieval, and generation. During indexing, documents are processed and stored as vector embeddings. During retrieval, the most relevant documents are fetched based on semantic similarity to the query. During generation, the LLM uses both the query and retrieved context to produce an answer.
+
+RAG systems are widely used in enterprise search, chatbots, question-answering systems, and document analysis tools. The quality of retrieval directly impacts the quality of generated responses, making vector database selection and configuration critical.
+
+Key factors affecting RAG quality include: embedding model choice, chunk size and overlap, retrieval strategy (dense vs hybrid), and post-processing of retrieved results.

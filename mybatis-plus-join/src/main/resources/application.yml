@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: mybatis-plus-join
+
+  # H2 In-Memory Database
+  datasource:
+    url: jdbc:h2:mem:mpjoin;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # H2 Console (development only)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # SQL Initialization
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+# MyBatis-Plus Configuration
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.example.mpjoin.entity
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# MyBatis-Plus-Join Configuration
+mybatis-plus-join:
+  # Enable sub-table mapping for nested DTOs
+  sub-table-logic: true
+  # Sub-table mapping fields (table alias to nested DTO list)
+  sub-table: {}
+
+# Server
+server:
+  port: 8081
+
+# Logging
+logging:
+  level:
+    com.example.mpjoin: DEBUG
+    com.github.yulichang: INFO

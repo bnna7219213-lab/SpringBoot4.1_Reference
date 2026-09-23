@@ -1,0 +1,11 @@
+Semantic Search: Beyond Keyword Matching
+
+Semantic search uses vector embeddings to understand the meaning behind queries, rather than relying solely on keyword matching. This enables search systems to return relevant results even when the query terms do not exactly match the document text.
+
+The process begins with an embedding model that converts both documents and queries into dense vectors in the same semantic space. When a user submits a query, it is embedded and compared against all stored vectors using a distance metric. The closest vectors correspond to the most semantically similar documents.
+
+Advanced techniques include query expansion (rewriting queries for better retrieval), multi-vector search (encoding documents in multiple ways), and cross-encoder reranking (using a more accurate but slower model to rerank top results).
+
+Metadata filtering allows combining semantic search with structured filters. For example, a search for 'deployment issues' can be filtered to only return documents from the 'troubleshooting' category or from a specific date range.
+
+The Recall at K metric measures how often the true relevant document appears in the top K results. Higher K values improve recall but increase result set size and latency.

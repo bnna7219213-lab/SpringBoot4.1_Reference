@@ -1,0 +1,27 @@
+# =============================================================
+# Tomcat Profile configuration
+# Activation: mvn spring-boot:run -P tomcat (default)
+# =============================================================
+server:
+  tomcat:
+    threads:
+      max: 200          # Max worker threads (ignored when virtual threads are on)
+      min-spare: 10     # Min spare threads
+    max-connections: 8192   # Max connections (actual concurrency limit with virtual threads)
+    accept-count: 100       # Backlog queue size
+    connection-timeout: 20000
+    keep-alive-timeout: 60000
+    max-keep-alive-requests: 100
+  port: 8080
+
+# Virtual threads (Spring Boot 4.x + JDK 21)
+spring:
+  threads:
+    virtual:
+      enabled: true     # Enable virtual threads (Tomcat concurrency governed by max-connections)
+
+logging:
+  level:
+    root: INFO
+    com.example.jetty: INFO
+    org.apache.catalina: INFO

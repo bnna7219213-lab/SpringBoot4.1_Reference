@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: spring-ai-basic
+
+  # -----------------------------------------------------------------------
+  # Spring AI 2.0 — OpenAI-compatible configuration
+  # Override via environment variables or external config.
+  # -----------------------------------------------------------------------
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:demo}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com/}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.7
+          max-tokens: 2048
+          top-p: 1.0
+          frequency-penalty: 0.0
+          presence-penalty: 0.0
+        # Retry configuration for transient failures
+        retry:
+          max-attempts: 3
+          backoff:
+            initial-interval: 1000
+            multiplier: 2.0
+            max-interval: 10000
+          include-client-error: false
+        # Connection & read timeouts (ms)
+        connection-timeout: 10000
+        read-timeout: 30000
+
+    # -----------------------------------------------------------------------
+    # Optional: Ollama as a local fallback model
+    # Uncomment and set the base-url to route to a local Ollama instance.
+    # -----------------------------------------------------------------------
+    # ollama:
+    #   base-url: http://localhost:11434
+    #   chat:
+    #     options:
+    #       model: llama3.2
+    #       temperature: 0.7
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  info:
+    env:
+      enabled: true
+
+logging:
+  level:
+    com.example.aibasic: DEBUG
+    org.springframework.ai: INFO
+    org.springframework.web: INFO
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "Spring Boot 4.1 + Spring AI 2.0 basic integration demo"
+    version: "1.0.0"

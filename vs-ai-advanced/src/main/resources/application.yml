@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: vs-ai-advanced
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:sk-placeholder}
+      chat:
+        options:
+          model: gpt-4o
+          temperature: 0.3
+          max-tokens: 4000
+  cache:
+    type: simple
+
+server:
+  port: 8081
+
+rag:
+  ingestion:
+    chunk-size: 600
+    chunk-overlap: 80
+    batch-size: 50
+  search:
+    top-k: 10
+    rerank-top-k: 5
+    similarity-threshold: 0.65
+  hybrid:
+    vector-weight: 0.7
+    keyword-weight: 0.3
+  rewrites:
+    enabled: true
+    max-rewrites: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+
+logging:
+  level:
+    com.example.vsadv: DEBUG
+    org.springframework.ai: INFO

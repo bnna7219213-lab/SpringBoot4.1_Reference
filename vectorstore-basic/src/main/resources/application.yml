@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: vectorstore-basic
+
+  # OpenAI configuration (placeholder - shown for demo, embeddings use local model)
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:sk-placeholder-not-needed-for-embeddings}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.7
+
+    # Transformers local embedding model (no API key needed)
+    transformers:
+      embedding:
+        model-embedding: sentence-transformers/all-MiniLM-L6-v2
+        disable-gpu: true
+
+    # SimpleVectorStore configuration
+    vectorstore:
+      simple:
+        enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.example.vstore: DEBUG
+    org.springframework.ai: INFO

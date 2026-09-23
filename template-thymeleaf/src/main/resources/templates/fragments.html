@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><meta charset="UTF-8"><title>Fragments</title></head>
+<body>
+
+<!-- Footer fragment included via th:replace="~{fragments :: footer}" -->
+<footer th:fragment="footer" style="text-align: center; padding: 24px; color: #94a3b8; font-size: 13px;">
+    <p>Spring Boot 4.1 + Thymeleaf Demo &mdash; All template engines render the same Todo CRUD</p>
+    <p th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2024</p>
+</footer>
+
+<!-- Header fragment (reusable) -->
+<header th:fragment="header(title)">
+    <h1 th:text="${title}">Title</h1>
+    <nav>
+        <a th:href="@{/todos}">Home</a>
+    </nav>
+</header>
+
+</body>
+</html>

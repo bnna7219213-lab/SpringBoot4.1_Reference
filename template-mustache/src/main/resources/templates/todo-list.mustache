@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List - Mustache</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f7fa; }
+        .header { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 24px 32px; border-radius: 12px; margin-bottom: 24px; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .stats { display: flex; gap: 16px; margin-top: 12px; }
+        .stat-card { background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; font-size: 14px; }
+        .todo-list { list-style: none; padding: 0; margin: 0; }
+        .todo-item { background: white; border-radius: 10px; padding: 18px 24px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; }
+        .todo-item.completed { opacity: 0.6; background: #f0fdf4; }
+        .todo-item.completed .todo-title { text-decoration: line-through; }
+        .urgent { border-left: 4px solid #ef4444; }
+        .high { border-left: 4px solid #f59e0b; }
+        .medium { border-left: 4px solid #3b82f6; }
+        .low { border-left: 4px solid #10b981; }
+        .todo-title { font-size: 17px; font-weight: 600; color: #1e293b; }
+        .todo-desc { color: #64748b; font-size: 14px; margin-top: 4px; }
+        .badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+        .actions { display: flex; gap: 8px; }
+        .btn { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; text-decoration: none; display: inline-block; }
+        .btn-primary { background: #4facfe; color: white; }
+        .btn-toggle { background: #e2e8f0; color: #475569; }
+        .footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 13px; }
+        .notfound { text-align: center; color: #94a3b8; padding: 60px; }
+    </style>
+</head>
+<body>
+
+<!--
+MUSTACHE TEMPLATE SYNTAX:
+  {{variable}}              — HTML-escaped variable
+  {{{rawVar}}}              — unescaped (raw) variable
+  {{#section}}...{{/section}}  — section (iterate list / conditional)
+  {{^inverted}}...{{/inverted}} — inverted section (render if falsy/empty)
+  {{> partial}}             — partial inclusion
+  {{! comment}}             — comment (not rendered in output)
+-->
+
+<!-- PARTIAL: reusable page header -->
+{{> header}}
+
+<div class="header">
+    <h1>{{appTitle}}</h1>
+    <p style="margin: 4px 0 0; opacity: 0.85;">{{engineName}} Template Engine - Logic-Less Demo</p>
+    <div class="stats">
+        <div class="stat-card"><strong>{{pendingCount}}</strong> Pending</div>
+        <div class="stat-card"><strong>{{completedCount}}</strong> Completed</div>
+        <div class="stat-card"><strong>{{totalCount}}</strong> Total</div>
+    </div>
+</div>
+
+<!-- SECTION: logic-less iteration — {{#todos}} ... {{/todos}} iterates list -->
+{{#hasTodos}}
+    <ul class="todo-list">
+        {{#todos}}
+        <li class="{{cssClassForList}}">
+            <div style="flex: 1;">
+                <div class="todo-title">{{title}}</div>
+                <div class="todo-desc">{{description}}</div>
+                <div style="margin-top: 6px;">
+                    <span class="badge" style="background:{{priorityBgColor}};color:{{priorityTextColor}};">
+                        {{priority}}
+                    </span>
+                    <span class="badge" style="background:{{statusBgColor}};color:{{statusTextColor}};">
+                        {{statusText}}
+                    </span>
+                </div>
+            </div>
+            <div class="actions">
+                <form action="/todos/{{id}}/toggle" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-toggle">{{toggleText}}</button>
+                </form>
+                <a href="/todos/{{id}}" class="btn btn-primary">View</a>
+            </div>
+        </li>
+        {{/todos}}
+    </ul>
+{{/hasTodos}}
+
+<!-- INVERTED SECTION: renders when value is false/null/empty -->
+{{^hasTodos}}
+    <div class="notfound">
+        <h3>No todos yet!</h3>
+    </div>
+{{/hasTodos}}
+
+<!-- Partial: page footer -->
+{{> footer}}
+
+</body>
+</html>

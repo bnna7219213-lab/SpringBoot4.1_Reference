@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: template-freemarker
+  freemarker:
+    cache: false
+    charset: UTF-8
+    suffix: .ftlh
+    template-loader-path: classpath:/templates/
+    settings:
+      default_encoding: UTF-8
+      locale: en_US
+      number_format: '0.##'
+      datetime_format: 'yyyy-MM-dd HH:mm:ss'
+      classic_compatible: true
+
+server:
+  port: 8083

@@ -1,0 +1,9 @@
+Research Notes: Embedding Models for Vector Stores
+
+Recent research has shown that the choice of embedding model significantly impacts vector database performance. Models like OpenAI's text-embedding-3-large, Cohere's embed-v3, and open-source alternatives like sentence-transformers offer different trade-offs between dimensionality, speed, and accuracy.
+
+HNSW (Hierarchical Navigable Small World) is currently the most popular approximate nearest neighbor (ANN) index algorithm for vector databases. It provides logarithmic search complexity while maintaining high recall rates. However, HNSW indexes consume significant memory and have high indexing time.
+
+Product Quantization (PQ) and Scalar Quantization are compression techniques that can reduce vector storage requirements by 4x-32x while maintaining acceptable accuracy. These are essential for production systems with billions of vectors.
+
+Hybrid search combines dense vector search with sparse keyword search (BM25/TF-IDF) to leverage the strengths of both approaches. This is becoming the standard for enterprise RAG implementations.

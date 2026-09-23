@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: explicit-mapping-restaurant
+
+server:
+  port: 9003
+
+logging:
+  level:
+    com.example.restaurant: DEBUG

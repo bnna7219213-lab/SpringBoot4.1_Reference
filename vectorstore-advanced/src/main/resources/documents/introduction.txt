@@ -1,0 +1,7 @@
+Introduction to Vector Databases
+
+A vector database is a type of database that stores data as high-dimensional vectors, also known as embeddings. These are mathematical representations of features or attributes of text, images, audio, or other data types. Vector databases enable fast and efficient similarity search across these vectors.
+
+The core concept behind vector databases is that similar items have vector representations that are close together in the vector space. This is measured using distance metrics such as cosine similarity, Euclidean distance, or dot product.
+
+Popular vector databases include PGVector, Milvus, Pinecone, Weaviate, Chroma, Qdrant, and Elasticsearch with kNN search. Each offers different trade-offs in terms of scalability, features, and deployment complexity.

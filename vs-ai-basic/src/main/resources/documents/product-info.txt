@@ -1,0 +1,65 @@
+=== ACME CORPORATION PRODUCT CATALOG ===
+
+ACME Cloud Platform
+--------------------
+Enterprise-grade cloud infrastructure solution providing scalable compute,
+storage, and networking services. Available in three tiers:
+
+1. Starter Tier ($99/month)
+   - 4 vCPUs, 16GB RAM, 500GB SSD storage
+   - Up to 1TB data transfer per month
+   - Basic monitoring and alerting
+   - Email support with 24-hour response time
+   - Ideal for small teams and development environments
+
+2. Professional Tier ($299/month)
+   - 16 vCPUs, 64GB RAM, 2TB NVMe storage
+   - Up to 10TB data transfer per month
+   - Advanced monitoring, logging, and alerting
+   - Priority support with 4-hour response time
+   - Auto-scaling for up to 100 instances
+   - Includes load balancing and CDN
+
+3. Enterprise Tier (Custom pricing)
+   - Unlimited compute and storage
+   - Unlimited data transfer
+   - 24/7 dedicated support with 1-hour SLA
+   - Auto-scaling for unlimited instances
+   - Dedicated account manager
+   - Custom SLA with 99.99% uptime guarantee
+   - Compliance: SOC 2 Type II, HIPAA, GDPR, FedRAMP
+
+ACME Data Pipeline
+-------------------
+Real-time and batch data processing service. Features:
+- Apache Spark and Flink integration
+- 200+ pre-built connectors (databases, APIs, file formats)
+- Exactly-once processing semantics
+- Built-in data quality checks and schema evolution
+- Pricing: Starting at $0.50 per million records processed
+- Throughput: Up to 1M events per second per pipeline
+- Supports streaming, micro-batch, and batch modes
+
+ACME AI Studio
+--------------
+Machine learning platform for building, training, and deploying models:
+- Managed Jupyter notebooks with GPU support
+- AutoML for classification, regression, and forecasting
+- Model versioning and experiment tracking
+- One-click deployment to REST endpoints
+- A/B testing and canny rollout capabilities
+- Supported frameworks: PyTorch, TensorFlow, scikit-learn, HuggingFace
+- GPU options: NVIDIA A100, H100, L40S
+- Pricing: $2.50 per GPU-hour + compute
+
+ACME Security Shield
+--------------------
+Comprehensive cybersecurity suite:
+- Web Application Firewall (WAF) with OWASP Top 10 protection
+- DDoS protection up to 10 Tbps
+- Threat intelligence with real-time updates
+- Vulnerability scanning (daily automated scans)
+- Incident response and forensics
+- Compliance reporting (PCI DSS, ISO 27001)
+- Pricing: $499/month base + $50 per protected endpoint/month
+- Includes 24/7 Security Operations Center (SOC) monitoring

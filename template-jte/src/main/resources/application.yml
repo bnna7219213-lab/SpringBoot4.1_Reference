@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: template-jte
+  jte:
+    development-mode: true
+    template-location: src/main/resources/jte-classes
+    binary-static-content: true
+
+server:
+  port: 8085
+
+logging:
+  level:
+    gg.jte: INFO

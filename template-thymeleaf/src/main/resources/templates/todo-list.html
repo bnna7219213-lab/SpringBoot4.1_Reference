@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{page.title}">Todo List</title>
+    <link rel="stylesheet" th:href="@{/css/todo.css}" />
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f7fa; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 24px 32px; border-radius: 12px; margin-bottom: 24px; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .stats { display: flex; gap: 16px; margin-top: 12px; }
+        .stat-card { background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; font-size: 14px; }
+        .todo-list { list-style: none; padding: 0; margin: 0; }
+        .todo-item { background: white; border-radius: 10px; padding: 18px 24px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; transition: transform 0.15s; }
+        .todo-item:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.10); }
+        .todo-item.completed { opacity: 0.6; background: #f0fdf4; }
+        .todo-item.completed .todo-title { text-decoration: line-through; color: #94a3b8; }
+        .todo-item.priority-urgent { border-left: 4px solid #ef4444; }
+        .todo-item.priority-high { border-left: 4px solid #f59e0b; }
+        .todo-item.priority-medium { border-left: 4px solid #3b82f6; }
+        .todo-item.priority-low { border-left: 4px solid #10b981; }
+        .todo-title { font-size: 17px; font-weight: 600; color: #1e293b; }
+        .todo-desc { color: #64748b; font-size: 14px; margin-top: 4px; }
+        .badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+        .badge-priority-URGENT { background: #fef2f2; color: #ef4444; }
+        .badge-priority-HIGH { background: #fffbeb; color: #f59e0b; }
+        .badge-priority-MEDIUM { background: #eff6ff; color: #3b82f6; }
+        .badge-priority-LOW { background: #ecfdf5; color: #10b981; }
+        .badge-status-done { background: #f0fdf4; color: #16a34a; }
+        .badge-status-pending { background: #fefce8; color: #ca8a04; }
+        .actions { display: flex; gap: 8px; }
+        .btn { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; text-decoration: none; display: inline-block; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-toggle { background: #e2e8f0; color: #475569; }
+        .empty { text-align: center; color: #94a3b8; padding: 60px 20px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 th:text="#{page.heading}">Todo List</h1>
+    <p style="margin: 4px 0 0; opacity: 0.85;" th:text="#{page.subheading}">Manage your tasks efficiently</p>
+    <div class="stats">
+        <div class="stat-card">
+            <strong th:text="${pendingCount}">3</strong> <span th:text="#{stats.pending}">Pending</span>
+        </div>
+        <div class="stat-card">
+            <strong th:text="${completedCount}">1</strong> <span th:text="#{stats.completed}">Completed</span>
+        </div>
+        <div class="stat-card">
+            <strong th:text="${urgentCount}">1</strong> <span th:text="#{stats.urgent}">Urgent</span>
+        </div>
+    </div>
+</div>
+
+<!-- Fragment inclusion example: reusable empty state -->
+<div th:if="${#lists.isEmpty(todos)}" class="empty">
+    <h3 th:text="#{empty.title}">No todos yet!</h3>
+    <p th:text="#{empty.message}">Start by creating your first task.</p>
+</div>
+
+<ul th:unless="${#lists.isEmpty(todos)}" class="todo-list">
+    <!-- Thymeleaf iteration with status variable -->
+    <li th:each="todo, iterStat : ${todos}"
+        th:class="'todo-item ' + ${todo.completed ? 'completed' : ''} + ' priority-' + ${#strings.toLowerCase(todo.priority)}">
+
+        <div style="flex: 1;">
+            <div class="todo-title" th:text="${todo.title}">Task Title</div>
+            <div class="todo-desc" th:text="${todo.description ?: 'No description'}">Description here</div>
+            <div style="margin-top: 6px;">
+                <span class="badge"
+                      th:classappend="'badge-priority-' + ${todo.priority}"
+                      th:text="${todo.priority}">MEDIUM</span>
+                <span class="badge"
+                      th:classappend="${todo.completed} ? 'badge-status-done' : 'badge-status-pending'"
+                      th:text="${todo.completed} ? #{status.done} : #{status.pending}">
+                    Pending
+                </span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <!-- Form for toggle (POST with th:action) -->
+            <form th:action="@{/todos/{id}/toggle(id=${todo.id})}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-toggle"
+                        th:text="${todo.completed} ? #{action.undo} : #{action.complete}">
+                    Complete
+                </button>
+            </form>
+            <!-- Link expression to detail -->
+            <a th:href="@{/todos/{id}(id=${todo.id})}" class="btn btn-primary"
+               th:text="#{action.view}">View</a>
+        </div>
+    </li>
+</ul>
+
+<!-- Footer fragment -->
+<footer th:replace="~{fragments :: footer}">
+</footer>
+
+</body>
+</html>

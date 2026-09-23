@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: explicit-mapping-ecommerce
+
+server:
+  port: 9001
+
+logging:
+  level:
+    com.example.ecommerce: DEBUG

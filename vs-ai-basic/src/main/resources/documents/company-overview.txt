@@ -1,0 +1,66 @@
+=== ACME CORPORATION - COMPANY OVERVIEW ===
+
+About Us
+--------
+ACME Corporation is a leading cloud technology company founded in 2015,
+headquartered in San Francisco, California. We provide enterprise-grade
+cloud computing, data analytics, artificial intelligence, and cybersecurity
+solutions to over 50,000 customers worldwide across 45 countries.
+
+Our Mission
+-----------
+To democratize enterprise technology by making powerful cloud, AI, and
+security tools accessible to organizations of all sizes with transparent
+pricing and best-in-class customer support.
+
+Leadership Team
+---------------
+- Dr. Sarah Chen, CEO and Co-founder - Former VP Engineering at Google Cloud
+- Marcus Williams, CTO and Co-founder - Former Principal Engineer at Amazon AWS
+- Priya Patel, COO - Former COO at Datadog, 15 years in enterprise SaaS
+- James Rodriguez, CFO - Former CFO at Snowflake, CPA and MBA from Wharton
+- Dr. Emily Watson, Chief AI Officer - Former Research Director at DeepMind
+
+Company Statistics (as of 2025)
+-------------------------------
+- Employees: 8,500+ globally
+- Customers: 50,000+ active accounts
+- Annual Revenue: $2.4 billion ARR
+- Year-over-Year Growth: 45 percent
+- Data Centers: 28 facilities across 15 countries
+- Patents: 340+ granted patents in cloud computing and AI
+- Funding: Series F, total $3.2B raised, valued at $48 billion
+- IPO: Planned for 2026
+
+Key Differentiators
+-------------------
+1. Transparent Pricing: No hidden fees, no surprise bills. What you see
+   is what you pay, with detailed cost breakdowns in real-time.
+
+2. Zero-Trust Security: Every request is authenticated, authorized, and
+   encrypted. Security is built into every layer, not bolted on.
+
+3. Open Standards: Full API compatibility with major cloud providers.
+   Easy migration path with no vendor lock-in.
+
+4. Customer-Centric SLAs: We put our money where our mouth is with
+   industry-leading SLA credits and uptime guarantees.
+
+5. Innovation Pace: Weekly feature releases, monthly major updates.
+   Our R&D investment exceeds 30 percent of revenue.
+
+Awards and Recognition
+----------------------
+- Gartner Magic Quadrant Leader (Cloud Infrastructure) - 2024, 2025
+- Forrester Wave Leader (Cloud AI Platforms) - 2025
+- Fast Company Top 10 Most Innovative Companies - 2024
+- Best Place to Work (Glassdoor) - 2024, 2025
+- InfoWorld Technology of the Year (Security Shield) - 2024
+
+Contact Information
+-------------------
+- Headquarters: 525 Market Street, Suite 3400, San Francisco, CA 94105
+- General Inquiries: info@acme-corp.example.com
+- Sales: sales@acme-corp.example.com
+- Investor Relations: ir@acme-corp.example.com
+- Press/Media: press@acme-corp.example.com

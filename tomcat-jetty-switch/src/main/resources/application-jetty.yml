@@ -1,0 +1,28 @@
+# =============================================================
+# Jetty Profile configuration
+# Activation: mvn spring-boot:run -Pjetty
+#
+# Note: activating jetty profile automatically excludes Tomcat
+# and adds Jetty as the embedded server via Maven dependency swap
+# =============================================================
+server:
+  jetty:
+    threads:
+      max: 200          # Jetty respects threads.max (controlled via internal Semaphore)
+      min: 10           # Min spare threads
+      idle-timeout: 60000  # Thread idle timeout (ms)
+    max-http-form-post-size: 200000
+    connection-idle-timeout: 30000
+  port: 8081   # Use different port to avoid conflict with default Tomcat 8080
+
+# Virtual threads (Spring Boot 4.x + JDK 21)
+spring:
+  threads:
+    virtual:
+      enabled: true     # Jetty still respects threads.max even with virtual threads
+
+logging:
+  level:
+    root: INFO
+    com.example.jetty: INFO
+    org.eclipse.jetty: INFO

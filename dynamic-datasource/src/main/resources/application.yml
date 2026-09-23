@@ -1,0 +1,86 @@
+spring:
+  application:
+    name: dynamic-datasource
+
+# =============================================
+# Dynamic DataSource Configuration
+# =============================================
+# Defines datasources for read-write splitting
+spring:
+  datasource:
+    # Dynamic datasource configuration
+    dynamic:
+      # Primary datasource (used by default when no @DS annotation)
+      primary: master
+      # Strict mode: exception if datasource not found (recommended for production)
+      strict: true
+      # Datasource groups
+      datasource:
+        # ---- Master (Write) Datasource ----
+        master:
+          url: jdbc:h2:mem:masterdb;DB_CLOSE_DELAY=-1;MODE=MySQL
+          driver-class-name: org.h2.Driver
+          username: sa
+          password:
+          # Connection pool settings (durid/hikari/etc. configurable)
+          # hikari:
+          #   maximum-pool-size: 20
+          #   minimum-idle: 5
+
+        # ---- Slave (Read) Datasource ----
+        slave:
+          url: jdbc:h2:mem:slavedb;DB_CLOSE_DELAY=-1;MODE=MySQL
+          driver-class-name: org.h2.Driver
+          username: sa
+          password:
+          # hikari:
+          #   maximum-pool-size: 50
+          #   minimum-idle: 10
+
+      # Global datasource configuration overrides
+      # mp-keys: ""  # datasource prefix for mybatis-plus integration
+
+# =============================================
+# H2 Console Configuration
+# =============================================
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# =============================================
+# SQL Initialization
+# =============================================
+  sql:
+    init:
+      mode: always
+
+# =============================================
+# MyBatis-Plus Configuration
+# =============================================
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.example.ds.entity
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# =============================================
+# Server Configuration
+# =============================================
+server:
+  port: 8082
+
+# =============================================
+# Logging
+# =============================================
+logging:
+  level:
+    com.example.ds: DEBUG
+    com.baomidou.dynamic: INFO
+    # Enable to see which datasource is selected
+    # com.baomidou.dynamic.datasource.toolkit: TRACE

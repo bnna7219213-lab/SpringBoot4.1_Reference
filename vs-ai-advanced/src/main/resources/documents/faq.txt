@@ -1,0 +1,114 @@
+ACME CORPORATE - CUSTOMER FAQ AND KNOWLEDGE BASE
+Last Updated: March 2025 | Document Owner: Customer Success Team
+
+FREQUENTLY ASKED QUESTIONS
+==========================
+
+Q: How do I upgrade my subscription from Starter to Professional?
+A: Upgrades can be completed instantly through the ACME Dashboard:
+   1. Log in at https://dashboard.acme-corp.example.com
+   2. Navigate to Settings > Subscription > Change Plan
+   3. Select Professional Tier and confirm
+   4. The price difference is prorated based on remaining billing days
+   5. New resources activate immediately (typically within 2 minutes)
+   6. Your existing configurations and data are preserved during upgrade
+
+Q: How long does a refund take to process?
+A: Refund processing times vary by payment method:
+   - Credit cards: 5-10 business days
+   - ACH bank transfer: 7-14 business days
+   - Wire transfer: 3-5 business days
+   - PayPal: 3-7 business days
+   Software subscriptions cancelled within 30 days receive automatic approval.
+   Hardware returns require inspection before approval (1-2 business days).
+
+Q: What happens to my data when I cancel?
+A: Data retention after cancellation:
+   - Day 0-30: Full access, all services active (grace period)
+   - Day 31-60: Read-only access, exports allowed
+   - Day 61+: Data permanently deleted, cannot be recovered
+   Enterprise customers may purchase Extended Archival for $99/month
+   which provides 12 months of read-only archival access post-cancellation.
+
+Q: Does ACME offer free trials?
+A: Yes, ACME provides generous free trial options:
+   - New customers: 14-day full-featured trial on any tier
+   - No credit card required to start
+   - 1,000 free AI inference credits included
+   - One trial per organization (verified by domain)
+   - Upgrading to paid trial: Full 30-day trial on the new tier
+   - Trial data preserved if converted within trial period
+   - After trial: Data retained for 7 days, then deleted
+
+Q: How do I contact support?
+A: ACME offers multiple support channels by tier:
+   - Starter: Email (support@acme-corp.example.com) - 24-hour response
+   - Professional: Email + Live Chat (Mon-Fri 9AM-6PM UTC) - 4-hour response
+   - Enterprise: Email + Chat + Phone (+1-800-ACME-HELP) - 1-hour response
+   - Community forum: https://community.acme-corp.example.com (all users)
+   - Status page: https://status.acme-corp.example.com
+
+Q: What compliance certifications does ACME have?
+A: ACME Cloud Platform maintains the following certifications:
+   - SOC 2 Type II (annual audit by Ernst and Young)
+   - HIPAA (Business Associate Agreement available)
+   - GDPR (EU data protection regulation)
+   - FedRAMP Moderate (US government workloads)
+   - ISO 27001:2022 (information security management)
+   - PCI DSS Level 1 (payment card processing)
+   Reports and evidence available to Enterprise customers upon NDA.
+
+Q: Can I use my own encryption keys?
+A: Yes, ACME supports multiple encryption key models:
+   - ACME-Managed Keys: Default, AES-256 at rest, TLS 1.3 in transit
+   - Customer-Managed Keys (CMK): Use AWS KMS, Azure Key Vault, or GCP KMS
+     (Professional and Enterprise tiers)
+   - Bring Your Own Key (BYOK): Enterprise tier only, FIPS 140-2 Level 3
+   Customer retains full key ownership. ACMe cannot access encrypted data
+   when CMK or BYOK is enabled.
+
+Q: What are the storage and bandwidth limits?
+A: Limits vary by subscription tier:
+   Starter: 500GB storage, 1TB bandwidth, expandable to 2TB storage
+   Professional: 2TB storage, 10TB bandwidth, expandable to 50TB
+   Enterprise: Unlimited storage and bandwidth
+   Data transfer IN to ACME is always free.
+   Data transfer OUT: First 1TB free, then $0.09/GB (Starter),
+   $0.07/GB (Professional), custom pricing (Enterprise).
+
+Q: Does ACME support multi-region deployment?
+A: Yes, multi-region capabilities differ by tier:
+   - Enterprise: Unlimited regions, global anycast load balancing,
+     cross-region failover with < 15-second detection
+   - Professional: Up to 3 regions in the same geography (US, EU, or APAC)
+   - Starter: Single region only
+   Available regions: US-East (Virginia), US-West (Oregon), EU-Central
+   (Frankfurt), EU-West (Ireland), AP-Northeast (Tokyo), AP-Southeast
+   (Singapore), AP-Southeast-2 (Sydney)
+   Cross-region data replication: $0.02/GB/month additional.
+
+Q: How do API rate limits work?
+A: ACME API enforces rate limits per hour and per day:
+   Starter: 100 req/min, 10,000/day
+   Professional: 1,000 req/min, 500,000/day
+   Enterprise: 10,000 req/min, unlimited/day
+   When limit is exceeded, HTTP 429 response is returned with
+   Retry-After header indicating when to retry.
+   Bulk operations use 5x rate limit units per call.
+
+Q: What is ACME's disaster recovery capability?
+A: ACME provides tiered disaster recovery:
+   Enterprise: RTO 15 minutes, RPO near-zero (continuous replication)
+   Professional: RTO 4 hours, RPO 1 hour (incremental replication)
+   Starter: RTO 24 hours, RPO 24 hours (daily snapshots)
+   All tiers include: Regular backup verification, 3-2-1 backup strategy,
+   cross-zone redundancy. Enterprise includes active-active multi-region.
+
+Q: Can I migrate data from AWS, Azure, or Google Cloud to ACME?
+A: Yes, ACME provides free migration assistance:
+   - Automated migration tools for AWS S3, Azure Blob, GCS
+   - Database migration service (MySQL, PostgreSQL, MongoDB, Redis)
+   - Virtual machine migration with minimal downtime
+   - Free migration consultation for Enterprise customers
+   - Typical migration time: 1-4 weeks for TB-scale datasets
+   - No data egress charges for inbound migration traffic

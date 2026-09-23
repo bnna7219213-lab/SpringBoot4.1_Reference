@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: spring-ai-advanced
+
+  # -----------------------------------------------------------------------
+  # Spring AI 2.0 — Advanced configuration
+  # -----------------------------------------------------------------------
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:demo}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com/}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.3
+          max-tokens: 4096
+          top-p: 1.0
+          frequency-penalty: 0.0
+          presence-penalty: 0.0
+          # Enable tool calling by default
+          tool-choice: auto
+        retry:
+          max-attempts: 3
+          backoff:
+            initial-interval: 1000
+            multiplier: 2.0
+            max-interval: 15000
+          include-client-error: false
+        connection-timeout: 10000
+        read-timeout: 60000
+
+    # -----------------------------------------------------------------------
+    # Example: Local model config for exploratory/cheap tasks
+    # -----------------------------------------------------------------------
+    # ollama:
+    #   base-url: http://localhost:11434
+    #   chat:
+    #     options:
+    #       model: llama3.2
+    #       temperature: 0.8
+
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  level:
+    com.example.aiadv: DEBUG
+    org.springframework.ai: DEBUG
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+
+ai:
+  advisor:
+    logging:
+      enabled: true
+      log-request: true
+      log-response: true
+  memory:
+    enabled: true
+    max-messages: 20
+  model-routing:
+    default-model: gpt-4o-mini
+    fast-model: gpt-4o-mini
+    complex-model: gpt-4o

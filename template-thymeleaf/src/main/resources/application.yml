@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: template-thymeleaf
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+  messages:
+    basename: messages/messages
+    encoding: UTF-8
+    fallback-to-system-locale: false
+    cache-duration: 3600
+
+server:
+  port: 8082
+
+logging:
+  level:
+    org.thymeleaf: INFO

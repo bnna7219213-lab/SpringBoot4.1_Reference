@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{detail.title} + ' - ' + ${todo.title}">Todo Detail</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f7fa; }
+        .breadcrumb { color: #64748b; font-size: 14px; margin-bottom: 16px; }
+        .breadcrumb a { color: #667eea; text-decoration: none; }
+        .card { background: white; border-radius: 12px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .divider { height: 1px; background: #e2e8f0; margin: 24px 0; }
+        .label { font-size: 12px; color: #64748b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .value { font-size: 16px; color: #1e293b; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .status-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .status-completed { background: #f0fdf4; color: #16a34a; }
+        .status-pending { background: #fefce8; color: #ca8a04; }
+        .back-link { display: inline-block; margin-top: 24px; color: #667eea; text-decoration: none; font-weight: 500; }
+        .icons span { width: 10px; height: 10px; display: inline-block; border-radius: 50%; margin-right: 6px; }
+        .completed-icon { background: #16a34a; }
+        .pending-icon { background: #ca8a04; }
+    </style>
+</head>
+<body>
+
+<div class="breadcrumb">
+    <a th:href="@{/todos}" th:text="#{nav.back}">Back to List</a>
+    &nbsp;/&nbsp;
+    <span th:text="${todo.id}">#1</span>
+</div>
+
+<div class="card">
+    <!-- Object binding with *{} selection expression -->
+    <h1 style="margin: 0 0 8px; color: #1e293b;" th:text="${todo.title}">Title</h1>
+
+    <!-- Conditional text with th:if / th:unless -->
+    <div style="margin-bottom: 20px;">
+        <span th:if="${todo.completed}" class="status-badge status-completed">
+            Completed
+        </span>
+        <span th:unless="${todo.completed}" class="status-badge status-pending">
+            Pending
+        </span>
+    </div>
+
+    <!-- Utility objects: #strings, #temporals (Spring) -->
+    <div class="label" th:text="#{detail.description}">Description</div>
+    <p style="margin: 0 0 24px; color: #475569; font-size: 16px; line-height: 1.6;" th:text="${todo.description}">
+        Description text
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="grid">
+        <div>
+            <div class="label" th:text="#{detail.priority}">Priority</div>
+            <div class="value" th:text="${todo.priority}">HIGH</div>
+        </div>
+        <div>
+            <div class="label" th:text="#{detail.created}">Created</div>
+            <!-- Spring Temporal formatting -->
+            <div class="value" th:text="${#temporals.format(todo.createdAt, 'yyyy-MM-dd HH:mm:ss')}">2024-01-01</div>
+        </div>
+        <div>
+            <div class="label" th:text="#{detail.updated}">Last Updated</div>
+            <div class="value" th:text="${#temporals.format(todo.updatedAt, 'yyyy-MM-dd HH:mm:ss')}">2024-01-01</div>
+        </div>
+        <div>
+            <div class="label">ID</div>
+            <div class="value" th:text="${todo.id}">1</div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Inline expression linking back with th:href -->
+    <a th:href="@{/todos}" class="back-link">&#8592; <span th:text="#{nav.back}">Back to List</span></a>
+</div>
+
+</body>
+</html>

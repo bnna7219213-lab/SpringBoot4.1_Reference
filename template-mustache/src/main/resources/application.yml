@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: template-mustache
+  mustache:
+    cache: false
+    charset: UTF-8
+    prefix: classpath:/templates/
+    suffix: .mustache
+
+server:
+  port: 8084

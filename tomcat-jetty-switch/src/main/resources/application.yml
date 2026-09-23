@@ -1,0 +1,38 @@
+# =============================================================
+# Spring Boot 4.1 default configuration
+# Uses Tomcat when no profile is activated
+# =============================================================
+spring:
+  application:
+    name: tomcat-jetty-switch
+  profiles:
+    active: tomcat   # activate tomcat profile by default
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# Application custom configuration (bound to app.server.*)
+app:
+  server:
+    label: springboot4-server
+    status-collector-enabled: true
+
+# Actuator endpoint exposure
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, threaddump
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.example.jetty: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

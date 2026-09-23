@@ -1,0 +1,84 @@
+spring:
+  application:
+    name: vectorstore-advanced
+
+  profiles:
+    active: inmemory
+
+  ai:
+    transformers:
+      embedding:
+        model-embedding: sentence-transformers/all-MiniLM-L6-v2
+        disable-gpu: true
+
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,observations
+  endpoint:
+    health:
+      show-details: always
+  tracing:
+    sampling:
+      probability: 1.0
+  observations:
+    key-values:
+      application: ${spring.application.name}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+logging:
+  level:
+    com.example.vadv: DEBUG
+    org.springframework.ai: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: inmemory
+
+  ai:
+    vectorstore:
+      simple:
+        enabled: true
+
+vector:
+  store:
+    type: simple
+    batching-strategy: TOKEN_COUNT
+
+---
+spring:
+  config:
+    activate:
+      on-profile: pgvector
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vectorstore
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  ai:
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 384
+        remove-existing-vector-store-table: true
+
+vector:
+  store:
+    type: pgvector
+    batching-strategy: TOKEN_COUNT

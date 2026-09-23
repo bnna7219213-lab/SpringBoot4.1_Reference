@@ -1,0 +1,53 @@
+# =============================================
+# MyBatis-Plus Code Generator Configuration
+# =============================================
+# Externalized configuration for the code generator.
+# These settings are bound to com.example.mpgen.config.GeneratorConfig
+
+mp:
+  generator:
+    author: mybatis-plus-generator
+    output-dir: ${project.basedir}/src/main/java
+    xml-output-dir: ${project.basedir}/src/main/resources
+    parent-package: com.example.mpgen.generated
+
+    # Database connection for reading table schema
+    jdbc-url: jdbc:h2:mem:mpgen;DB_CLOSE_DELAY=-1;MODE=MySQL
+    jdbc-driver: org.h2.Driver
+    jdbc-username: sa
+    jdbc-password:
+
+    # Tables to generate
+    include-tables:
+      - t_product
+
+    # Table prefixes to remove from entity names
+    table-prefix:
+      - t_
+
+    # Entity generation settings
+    entity:
+      lombok-model: true
+      table-field-annotation-enable: true
+      file-override: true
+      logic-delete-column-name: deleted
+
+    # Mapper generation settings
+    mapper:
+      mapper-annotation: true
+      base-result-map: true
+      base-column-list: true
+      file-override: true
+      file-name: "%sMapper"
+
+    # Service generation settings
+    service:
+      service-file-name: "I%sService"
+      service-impl-file-name: "%sServiceImpl"
+      file-override: true
+
+    # Controller generation settings
+    controller:
+      rest-style: true
+      file-name: "%sController"
+      file-override: true

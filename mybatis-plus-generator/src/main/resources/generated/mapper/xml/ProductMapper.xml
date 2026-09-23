@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mpgen.generated.mapper.ProductMapper">
+
+    <!-- Base Result Map -->
+    <resultMap id="BaseResultMap" type="com.example.mpgen.generated.entity.Product">
+        <id column="id" property="id"/>
+        <result column="product_name" property="productName"/>
+        <result column="category" property="category"/>
+        <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <!-- Base Column List -->
+    <sql id="Base_Column_List">
+        id, product_name, category, price, stock, description, status, create_time, update_time, deleted
+    </sql>
+
+    <!-- Base Query Condition -->
+    <sql id="Base_Where_Clause">
+        <where>
+            deleted = 0
+            <if test="ew != null and ew.sqlSegment != null and ew.sqlSegment != ''">
+                AND ${ew.sqlSegment}
+            </if>
+        </where>
+    </sql>
+
+    <!-- Custom queries can be added below -->
+
+</mapper>

@@ -1,0 +1,169 @@
+ACME CORPORATE POLICIES AND PROCEDURES MANUAL
+Document Version: 4.0 | Effective Date: January 1, 2025
+Document Owner: Legal and Compliance Department
+
+========================================
+CHAPTER 1: CUSTOMER SERVICE POLICIES
+========================================
+
+1.1 Subscription and Service Agreement
+-----------------------------------------
+All customers must accept the Terms of Service (ToS) and Acceptable Use
+Policy (AUP) before accessing ACME services. The ToS is available at
+https://acme-corp.example.com/legal/tos and is incorporated by reference
+into all subscription agreements.
+
+Account Types:
+- Individual Account: Single user, non-transferable
+- Organization Account: Multi-user with role-based access control
+- Enterprise Organization Account: Unlimited users with SSO integration
+
+Billing Definitions:
+- Monthly Billing Cycle: Calendar month, prorated for mid-month signups
+- Annual Billing: January 1 - December 31, invoiced quarterly
+- Service Credit: Credits applied before taxes, non-transferable
+
+1.2 Service Level Agreement (SLA)
+------------------------------------
+ACME guarantees the following uptime commitments per service tier:
+
+Platinum (Enterprise Edition):
+- Compute Availability: 99.99 percent (maximum 4.3 min downtime/month)
+- Storage Durability: 99.999999999 percent (eleven nines)
+- Network Availability: 99.99 percent
+- Response Time (Critical): 1 hour (24/7)
+- Response Time (Standard): 4 hours (business hours)
+
+Gold (Professional Edition):
+- Compute Availability: 99.95 percent (maximum 21.9 min downtime/month)
+- Storage Durability: 99.9999999 percent (nine nines)
+- Network Availability: 99.95 percent
+- Response Time (Critical): 4 hours (business hours)
+- Response Time (Standard): 24 hours (business hours)
+
+Silver (Starter Edition):
+- Compute Availability: 99.9 percent (maximum 43.8 min downtime/month)
+- Storage Durability: 99.99999 percent (seven nines)
+- Network Availability: 99.9 percent
+- Response Time (All): 24 hours (business hours)
+
+SLA Credits:
+- For each 0.1 percent below guaranteed uptime, customer receives 10 percent
+  monthly service credit
+- Maximum monthly credit: 100 percent of monthly subscription fee
+- Credits must be requested within 30 days of the incident
+- Credits do not include third-party service downtime
+- Scheduled maintenance (max 4 hours/month, announced 72 hours in advance)
+  does not count against SLA
+
+1.3 Cancellation and Refund Policy
+-------------------------------------
+Cancellation:
+- Monthly subscriptions: Cancel anytime, effective end of current month
+- Annual subscriptions: Cancel anytime, effective end of current contract
+  year. Early termination fee: 25 percent of remaining contract value.
+- Enterprise contracts: 30-day written notice required
+- Upon cancellation: Customer has 30-day grace period to export data
+- After 30 days: All data permanently deleted, not recoverable
+
+Refund Eligibility:
+- Software subscriptions: Full refund within 30 days of initial purchase
+  (no questions asked)
+- Prorated refunds: Available for annual subscriptions cancelled after
+  the 30-day window, calculated as: (remaining days / 365) * annual price
+  minus a 5 percent early termination processing fee
+- Hardware products: 14-day return window from delivery date
+- Refund method: Original payment method only
+- Processing time: 5-10 business days from approval
+
+Special Cases:
+- Defective hardware: Full refund plus free return shipping, 90-day window
+- Service outage credit: Automatic for SLA violations, no request needed
+- Promotional pricing: Refunds calculated at promotional rate used
+
+========================================
+CHAPTER 2: PRIVACY AND DATA PROTECTION
+========================================
+
+2.1 Data Collection and Use
+-----------------------------
+ACME collects and processes the following data categories:
+
+1. Account Information: Name, email, company, billing address, tax ID
+2. Usage Data: API calls, resource consumption, feature usage, logs
+3. Payment Information: Stored with PCI DSS Level 1 compliant
+   payment processor. ACME does not store full credit card numbers.
+4. Support Data: Chat logs, email communications, support tickets
+
+ACME does NOT:
+- Sell customer data to third parties for marketing purposes
+- Access customer data without explicit permission (except for legal/
+  compliance requirements)
+- Use customer data to train AI models without opt-in consent
+
+2.2 Data Residency and Sovereignty
+-------------------------------------
+- US Customers: Data stored in US-East or US-West data centers
+- EU Customers: Data stored in EU-Central (Frankfurt) or EU-West (Ireland)
+- APAC Customers: Data stored in AP-Northeast (Tokyo), AP-Southeast
+  (Singapore), or AP-Southeast-2 (Sydney)
+- Cross-border transfers: Protected by EU Standard Contractual Clauses
+  (SCCs) with additional encryption safeguards
+- Data localization: Enterprise customers can specify exact data center
+
+2.3 Data Subject Rights and GDPR Compliance
+----------------------------------------------
+ACME provides the following rights to all data subjects worldwide:
+
+1. Right of Access: Request copy of all personal data held (free, within
+   30 days)
+2. Right to Rectification: Correct inaccurate personal data
+3. Right to Erasure: Delete all personal data (30-day completion
+   window after verification)
+4. Right to Portability: Export data in machine-readable format
+   (CSV, JSON, Parquet)
+5. Right to Restriction: Limit processing of personal data
+6. Right to Object: Opt out of processing for legitimate interests
+
+Request Process:
+- Submit via self-service portal or email to privacy@acme-corp.example.com
+- Identity verification required (government-issued ID or corporate email)
+- Standard response time: 30 days (extendable to 60 days for complex
+  requests)
+
+========================================
+CHAPTER 3: ACCEPTABLE USE AND SECURITY
+========================================
+
+3.1 Acceptable Use Policy
+---------------------------
+Prohibited activities include:
+- Cryptocurrency mining without explicit authorization
+- Distribution of malware, spam, or phishing campaigns
+- Unauthorized access attempts to ACME infrastructure or other tenants
+- Activities violating local, state, federal, or international laws
+- Resale of ACME services without a partnership agreement
+
+3.2 Encryption and Key Management
+------------------------------------
+ACME provides three encryption options:
+
+1. ACME-Managed Keys (default):
+   - AES-256 encryption at rest
+   - TLS 1.3 in transit
+   - Keys rotated every 90 days
+   - ACME holds encryption keys
+
+2. Customer-Managed Keys (CMK):
+   - Available on Professional and Enterprise tiers
+   - Customer manages keys via supported KMS (AWS KMS, Azure Key Vault,
+     Google Cloud KMS)
+   - ACME CANNOT access encrypted data with CMK enabled
+   - Additional cost: $1.00 per 10,000 key operations
+
+3. Bring Your Own Key (BYOK):
+   - Available on Enterprise tier only
+   - Customer provides own encryption keys via cryptographic protocol
+   - Hardware Security Module (HSM) support for FIPS 140-2 Level 3
+   - Zero-knowledge architecture: ACME has no access to keys or data
+   - Additional cost: $500/month per key vault

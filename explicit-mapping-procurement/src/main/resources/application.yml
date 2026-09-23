@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: explicit-mapping-procurement
+
+server:
+  port: 9004
+
+logging:
+  level:
+    com.example.procurement: DEBUG
