@@ -1,6 +1,6 @@
 ## 项目创建结果
 
-全部项目位于 `C:\Users\bnna7\Aether\springboot4\` 下，共生成 **267个文件**（160个Java源码、24个YAML配置、23个XML、24个README、10个SQL、模板文件等）。
+全部项目位于 `SpringBoot4.1_Reference\` 下，共 **267个文件**（160个Java源码、24个YAML配置、23个XML、24个README、10个SQL、模板文件等）。
 
 ### 第1组：嵌入式服务器切换 (1个项目)
 
