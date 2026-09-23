@@ -1,5 +1,3 @@
----
-
 ## 项目创建结果
 
 全部项目位于 `C:\Users\bnna7\Aether\springboot4\` 下，共生成 **267个文件**（160个Java源码、24个YAML配置、23个XML、24个README、10个SQL、模板文件等）。
@@ -55,7 +53,5 @@
 | explicit-mapping-restaurant | 9003 | 餐饮 | 分→元转换、CSV过敏原解析、JSON规格展开、辣度中文映射 |
 | explicit-mapping-procurement | 9004 | 采购 | 统一信用代码掩码、银行合并掩码、审批链JSON解析、紧急度中文 |
 | explicit-mapping-marketing | 9005 | 营销 | 活动类型中文、CTR/CVR/ROI计算、A/B变体展示、预算百分比 |
-
----
 
 每个项目都符合 **Spring Boot 4.1.0 + Java 21** 技术栈要求，使用 **Jakarta 命名空间**，所有代码均包含完整可运行结构（pom.xml + 主类 + 业务代码 + 配置文件 + README）。显式映射项目特别涵盖了参考文档中定义的5类"形状分歧"（改名、编码值转业务文本、计算字段、格式化、多字段合并），并结合真实电商/物流/餐饮/采购/营销业务规则，展示为什么 BeanUtils 反射只能解决名字/类型完全一致的字段，而业务规则驱动的映射只能显式声明。
